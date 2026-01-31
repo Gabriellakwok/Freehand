@@ -73,3 +73,14 @@ nav a { text-decoration: none; color: #636e72; font-weight: 500; }
 footer { padding: 60px 20px; background: #2d3436; color: #b2bec3; text-align: center; }
 footer h3 { color: white; margin-bottom: 10px; }
 .admin-link { display: block; margin-top: 20px; color: #636e72; font-size: 0.8rem; text-decoration: none; }
+.learn-more {
+    display: inline-block;
+    margin-top: 15px;
+    color: #00b894;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.learn-more:hover {
+    text-decoration: underline;
+}
