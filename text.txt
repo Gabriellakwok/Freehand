@@ -1,0 +1,49 @@
+How to Use AI to Your Own Advantage 
+Hello everybody. This is our first uploaded file on the website.
+Today, I wanted to write about Artificial Intelligence(AI). A thing to mark is the fear of AI nowadays. AI is like Pandora’s box in modern times. The box is already open, and what matters is how we use it. 
+The bad part
+In late January 2026, at the World Economic Forum, Elon Musk commented on AI. He predicts AI could be smarter than any human by the end of 2026 (or”no later than next year:2027 at the latest”) His bigger call, predicting AI will be smarter than all of humanity combined around 2030 or 2031. 
+AI could cause devastating damage. Minor problems include job-loss(can be vital to this “revolution” of AI), privacy issues and misinformation. 
+The most worrying part is AI doesn’t need to hate us or be evil. It just follows its programmed goal logically. And if humans get in the way, even accidentally, it removes the obstacle with no second thoughts. This, whether happening intentionally or unintentionally, is catastrophic.
+What should we do?
+According to Musk, we need to programme AI with the right values from the start. A truly curious, truth-focused AI is more likely to see humans as fascinating, and worth preserving. He also believes that governments should regulate high risk AI.
+So how should students learn to use it?
+Here are a few tips, or guides to using AI.
+Use AI as Your Personal Tutor
+The school system is still running and intact, and I bet most of you still want passable grades at school. So, here are a few prompts you can use to understand problems and theories.
+• “Explain quantum entanglement to a 3 year old.” → You get simple, fun explanations.
+•  Break down hard problems step-by-step: Paste a math question or code error → “Walk me through this step by step without giving the final answer.” (Many tools now have “study mode” for this)
+•  Make practice questions: “Give me 10 IB Biology multiple-choice questions on photosynthesis with answers hidden until I ask.”
+•  Teach back method: After studying a topic, say: “Pretend I’m teaching you about [topic]. Ask me questions like a strict teacher.” → Forces you to recall and explain, same thing as active recall.
+Boost Productivity & Life Skills
+AI can save time so you have more for fun, sleep, or side projects.
+•  Summarize long readings fast: Upload a PDF chapter or paste article text → “Summarize this in 300 words with key points and 3 questions I should be able to answer.”
+•  Brainstorm ideas: Essay stuck? “Give me 5 creative thesis statements for an essay on climate change impacts in Hong Kong.”
+•  Plan your week: “I’m a Form 5 student with DSE prep, Python project, and basketball practice. Make a realistic weekly schedule with breaks.”
+•  Improve your writing: Paste your draft → “Give feedback on structure, clarity, and grammar — suggest improvements but don’t rewrite it all.”
+•  Learn skills faster: Coding bug in long codes? Take a screenshot and give it to AI with this prompt or something like this “Explain where this Python error happens and how to fix it.”
+The big “LIFE PLAN”
+                One AI use that can always bring you something. Ever thought 
+                about your future plans and get overwhelmed? Tell AI to help you   
+                brainstorm plans and goals, maybe tell it more about you to   
+                achieve more useful answers, if privacy issues aren’t major
+                problems in your opinion. 
+Creative & Fun Uses 
+•  Generate project ideas: “Suggest 5 beginner Python projects related to finance tracking.”
+•  Role-play tough situations: “Act as a university interviewer and ask me questions about my interest in AI — give feedback after each answer.”
+•  Language practice: Learning English/Mandarin? “Have a casual conversation with me in British English and correct my mistakes gently.”
+                 •  Mind maps & visuals: Some tools (or free add-ons) turn text
+                 into diagrams — great for revision.
+*Don’t Get in Trouble*
+Schools are cracking down — be smart:
+•  Be transparent — If your teacher allows AI, say how you used it
+•  Never submit 100% AI work — That’s not yours, and detectors are getting better.
+•  Use it to build skills — The goal is to get so good you barely need AI later.
+•  Watch for misinformation — Always fact check. Even the best AI models have hallucinations.
+We sometimes still catch ourselves copying too much, so if time allows, tell AI to not give you the direct answer, and instead help you research and brainstorm points.
+Quick Tool Picks for Teens (2026 Edition)
+•  ChatGPT / Gemini → Great all-rounder, free, good for explanations & study mode.
+•  Claude → Excellent for writing feedback & longer thinking (feels more careful).
+•  Grok → Real-time info from web/X, fun tone, great for current events or quick coding help.
+•  Perplexity → Best for research (shows sources!).
+•  Grammarly + Notion AI → Polish writing & organize notes.
