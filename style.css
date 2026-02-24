@@ -1,27 +1,48 @@
-* { box-sizing: border-box; transition: 0.3s; }
-body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: #fff; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: #fff; color: #1a1a1a; line-height: 1.6; }
 
-nav { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; height: 80px; background: #fff; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #eee; }
-.brand-name { font-size: 1.6rem; font-weight: 800; }
-nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
+/* Navigation */
+nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 5%; height: 80px; background: #fff;
+    position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #eee;
+}
+.brand-name { font-size: 1.6rem; letter-spacing: -1px; }
+nav ul { display: flex; list-style: none; gap: 20px; align-items: center; margin: 0; }
 nav a { text-decoration: none; color: #333; font-weight: 600; }
 
-.btn-donate { background: #ff7675; color: white !important; padding: 10px 20px; border-radius: 12px; }
+/* Buttons */
+.btn-donate { background: #ff7675; color: white !important; padding: 10px 20px; border-radius: 12px; font-size: 0.9rem; }
+.btn-main { background: #00b894; color: white; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-block; }
+.btn-text { color: #00b894; text-decoration: none; font-weight: 700; display: block; margin-top: 15px; }
 
-.hero { height: 70vh; background: #1a1a1a; color: white; display: flex; align-items: center; justify-content: center; text-align: center; }
-.hero h1 { font-size: 4rem; margin: 0; }
+/* Hero - Full Screen on Desktop */
+.hero {
+    height: 85vh; background: #1a1a1a; color: white;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+}
+.hero h1 { font-size: 4rem; margin: 0; font-weight: 800; }
+.hero p { font-size: 1.4rem; opacity: 0.8; margin: 20px 0 40px; }
 
-.container { padding: 60px 5%; max-width: 1200px; margin: auto; }
-.category-section { margin-bottom: 60px; text-align: left; }
-.category-title { font-size: 2rem; border-left: 5px solid #00b894; padding-left: 15px; margin-bottom: 30px; }
+/* Layout */
+.container { padding: 80px 5%; max-width: 1200px; margin: auto; }
+.category-block { margin-bottom: 60px; }
+.cat-title { font-size: 2rem; border-left: 6px solid #00b894; padding-left: 20px; margin-bottom: 30px; text-align: left; }
 
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-.card { padding: 30px; background: #fdfdfd; border-radius: 20px; border: 1px solid #eee; }
+.card { padding: 40px; background: #fafafa; border-radius: 24px; border: 1px solid #eee; text-align: left; transition: 0.3s; }
 .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-.card-icon { font-size: 2rem; margin-bottom: 10px; }
 
-.btn-main { background: #00b894; color: white; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 800; }
-.btn-text { color: #00b894; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 15px; }
+.bg-light { background: #f9f9f9; border-top: 1px solid #eee; }
+.roles-grid { display: flex; gap: 30px; margin-top: 40px; }
+.role-box { flex: 1; padding: 30px; background: white; border-radius: 20px; border: 1px solid #eee; }
 
-footer { padding: 40px; background: #111; color: white; text-align: center; }
-.admin-link { color: #444; text-decoration: none; display: block; margin-top: 20px; }
+footer { padding: 60px; background: #111; color: white; text-align: center; }
+.admin-link { color: #333; text-decoration: none; display: block; margin-top: 20px; font-size: 0.8rem; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .roles-grid { flex-direction: column; }
+    nav ul { display: none; }
+}
