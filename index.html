@@ -4,69 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freehand | Skills for the Real World</title>
-    
-    <meta name="description" content="Free resources on Python, AI, and Money Skills by Gabriella and Abby Kwok.">
-    <meta property="og:title" content="Freehand">
-    <meta property="og:image" content="logo.png">
-
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <nav>
-        <div class="brand-name">
-            <strong>Freehand</strong>
-        </div>
+        <div class="brand-name"><strong>Freehand</strong></div>
         <ul>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="https://www.buymeacoffee.com/" target="_blank" class="btn-donate">Donate ❤️</a></li>
+            <li><a href="#resources">Library</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="https://www.buymeacoffee.com/Gabriellakwok" target="_blank" class="btn-donate">Donate ❤️</a></li>
         </ul>
     </nav>
 
     <header class="hero">
-        <div class="slider-container">
-            <div class="slide active">
-                <div class="hero-content">
-                    <h1>Thrive in the actual world.</h1>
-                    <p>Free resources on the skills school usually skips.</p>
-                    <a href="#resources" class="btn-main">Get Started</a>
-                </div>
-            </div>
-            <div class="slide">
-                <div class="hero-content">
-                    <h1>Python & AI Basics</h1>
-                    <p>Master the tools of the future with Gabriella's guides.</p>
-                    <a href="#resources" class="btn-main">Explore AI</a>
-                </div>
-            </div>
+        <div class="hero-content">
+            <h1>Skills for the actual world.</h1>
+            <p>Free resources designed by Gabriella & Priscilla.</p>
+            <a href="#resources" class="btn-main">View Library</a>
         </div>
     </header>
 
     <section id="resources" class="container">
         <h2 class="section-title">Resource Library</h2>
-        <p>Access our curated guides and summaries instantly via our shared folder.</p>
-        
-        <div class="grid">
-            <div class="card" style="text-align: center; grid-column: 1 / -1;">
-                <h3>📁 Our Public Folder</h3>
-                <p>Click below to access our Google Drive folder for all Python, AI, and Money resources.</p>
-                <a href="https://drive.google.com/drive/folders/1WkXezBn5tNxGxaE5vEpLxqZ2lxCy0KkI?usp=share_link" target="_blank" class="btn-main">Open Library →</a>
-            </div>
+        <div id="resource-grid" class="grid">
+            <p>Loading the latest resources...</p>
         </div>
     </section>
 
     <section id="about" class="bg-light">
         <div class="container">
-            <h2>About Us</h2>
+            <h2>About Freehand</h2>
             <div class="roles-grid">
                 <div class="role-box">
                     <h4>Gabriella</h4>
-                    <p>Tech Lead: Building features and global scaling for Freehand.</p>
+                    <p>Tech Lead: Website architecture and international scaling.</p>
                 </div>
                 <div class="role-box">
-                    <h4>Abby</h4>
+                    <h4>Priscilla</h4>
                     <p>Creative Lead: Content design and user experience.</p>
                 </div>
             </div>
@@ -79,17 +55,38 @@
     </footer>
 
     <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        function showNextSlide() {
-            if(slides.length > 0) {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].classList.add('active');
+        // This script fetches your titles and links from a Google Sheet CSV
+        // Change the URL below to your "Published" Google Sheet CSV link
+        const sheetUrl = 'YOUR_GOOGLE_SHEET_CSV_URL_HERE';
+
+        async function loadResources() {
+            try {
+                const response = await fetch(sheetUrl);
+                const data = await response.text();
+                const rows = data.split('\n').slice(1); // Skip the header row
+                const grid = document.getElementById('resource-grid');
+                grid.innerHTML = '';
+
+                rows.forEach(row => {
+                    const [title, type, link] = row.split(',');
+                    if (title && link) {
+                        const icon = type.trim() === 'Video' ? '🎬' : '📄';
+                        const card = document.createElement('div');
+                        card.className = 'card';
+                        card.innerHTML = `
+                            <div class="card-icon">${icon}</div>
+                            <h3>${title}</h3>
+                            <p>${type} Resource</p>
+                            <a href="${link}" target="_blank" class="btn-text">View Now →</a>
+                        `;
+                        grid.appendChild(card);
+                    }
+                });
+            } catch (e) {
+                console.error("Sheet not connected yet.");
             }
         }
-        setInterval(showNextSlide, 5000);
+        loadResources();
     </script>
-
 </body>
 </html>
