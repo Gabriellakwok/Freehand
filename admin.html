@@ -6,27 +6,28 @@
     <title>Freehand | Admin</title>
     <style>
         body { font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #f4f7f6; }
-        .card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; width: 400px; }
-        input { width: 100%; padding: 15px; margin: 20px 0; border: 2px solid #eee; border-radius: 15px; text-align: center; }
-        button { background: #00b894; color: white; border: none; padding: 15px; border-radius: 12px; width: 100%; font-weight: bold; cursor: pointer; }
+        .card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; width: 450px; }
         #content { display: none; }
-        .upload-btn { display: block; margin: 20px 0; padding: 25px; background: #6c5ce7; color: white; text-decoration: none; border-radius: 15px; font-weight: bold; font-size: 1.2rem; }
+        .upload-btn { display: block; margin: 20px 0; padding: 25px; background: #6c5ce7; color: white; text-decoration: none; border-radius: 15px; font-weight: bold; }
+        .instruction { text-align: left; background: #fff9e6; padding: 15px; border-radius: 10px; font-size: 0.9rem; border: 1px solid #ffe58f; }
     </style>
 </head>
 <body>
     <div id="login" class="card">
         <h2>Freehand Admin</h2>
-        <input type="password" id="pw" placeholder="Password" autofocus>
-        <button onclick="check()">Login</button>
+        <input type="password" id="pw" style="width:100%; padding:15px; margin-bottom:15px;" placeholder="Password">
+        <button onclick="check()" style="width:100%; padding:15px; background:#00b894; color:white; border:none; border-radius:10px;">Login</button>
     </div>
 
     <div id="content" class="card">
         <h1>Dashboard</h1>
-        <p>Step 1: Click the button below.<br>Step 2: Drag in your file.<br>Step 3: Click 'Commit'.</p>
-        <a href="https://github.com/Gabriellakwok/institution-2/upload/main" target="_blank" class="upload-btn">📤 UPLOAD FILE NOW</a>
-        <p style="font-size: 0.8rem; color: #999;">The website will update itself in 1 minute.</p>
-        <hr style="border:0; border-top:1px solid #eee; margin: 20px 0;">
-        <a href="index.html" style="color: #bbb; text-decoration: none;">← Back to Website</a>
+        <div class="instruction">
+            <strong>How to choose a category:</strong><br>
+            Name your file: <code>Category_Title.pdf</code><br><br>
+            <em>Example:</em> <code>Python_Basics.pdf</code> will show up in the Python section.
+        </div>
+        <a href="https://github.com/Gabriellakwok/institution-2/upload/main" target="_blank" class="upload-btn">📤 UPLOAD & CATEGORIZE</a>
+        <a href="index.html" style="color: #bbb; text-decoration: none;">← Exit</a>
     </div>
 
     <script>
@@ -34,7 +35,7 @@
             if(document.getElementById('pw').value === 'mushroom') {
                 document.getElementById('login').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
-            } else { alert("Wrong Password"); }
+            }
         }
     </script>
 </body>
