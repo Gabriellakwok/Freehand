@@ -14,22 +14,22 @@
         <ul>
             <li><a href="#resources">Library</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="https://www.buymeacoffee.com/Gabriellakwok" target="_blank" class="btn-donate">Donate ❤️</a></li>
+            <li><a href="https://www.buymeacoffee.com/Gabriellakwok" target="_blank" class="btn-donate">Buy Me A Coffee ☕</a></li>
         </ul>
     </nav>
 
     <header class="hero">
         <div class="hero-content">
             <h1>Skills for the actual world.</h1>
-            <p>Free resources designed by Gabriella & Priscilla.</p>
+            <p>Resources by Gabriella & Priscilla. Updated automatically.</p>
             <a href="#resources" class="btn-main">View Library</a>
         </div>
     </header>
 
     <section id="resources" class="container">
         <h2 class="section-title">Resource Library</h2>
-        <div id="resource-grid" class="grid">
-            <p>Loading the latest resources...</p>
+        <div id="file-list" class="grid">
+            <p>Scanning for new files...</p>
         </div>
     </section>
 
@@ -39,11 +39,11 @@
             <div class="roles-grid">
                 <div class="role-box">
                     <h4>Gabriella</h4>
-                    <p>Tech Lead: Website architecture and international scaling.</p>
+                    <p>Tech Lead: Systems and scaling.</p>
                 </div>
                 <div class="role-box">
                     <h4>Priscilla</h4>
-                    <p>Creative Lead: Content design and user experience.</p>
+                    <p>Creative Lead: Design and UX.</p>
                 </div>
             </div>
         </div>
@@ -55,38 +55,47 @@
     </footer>
 
     <script>
-        // This script fetches your titles and links from a Google Sheet CSV
-        // Change the URL below to your "Published" Google Sheet CSV link
-        const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRJADdng7KM5gbWVETPiF0DiESHONQ5-2TQjsEax__fWKG2VulTv3wpb1zVeUS69_Csr2f_p-Lg7tVB/pub?output=csv';
-
-        async function loadResources() {
+        async function loadFiles() {
+            const username = "Gabriellakwok";
+            const repo = "institution-2";
+            const grid = document.getElementById('file-list');
+            
             try {
-                const response = await fetch(sheetUrl);
-                const data = await response.text();
-                const rows = data.split('\n').slice(1); // Skip the header row
-                const grid = document.getElementById('resource-grid');
-                grid.innerHTML = '';
+                // This fetches your files directly from GitHub's brain
+                const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/`);
+                const files = await response.json();
+                grid.innerHTML = ''; 
 
-                rows.forEach(row => {
-                    const [title, type, link] = row.split(',');
-                    if (title && link) {
-                        const icon = type.trim() === 'Video' ? '🎬' : '📄';
+                files.forEach(file => {
+                    // It ONLY shows your uploads, ignoring the code files
+                    const isResource = file.name.endsWith('.pdf') || file.name.endsWith('.zip') || file.name.endsWith('.mp4');
+                    
+                    if (isResource) {
                         const card = document.createElement('div');
                         card.className = 'card';
+                        const icon = file.name.endsWith('.mp4') ? '🎬' : '📄';
+                        
+                        // It turns the filename (like My_Video.mp4) into a clean Title (My Video)
+                        const cleanTitle = file.name.split('.')[0].replace(/_/g, ' ').replace(/-/g, ' ');
+
                         card.innerHTML = `
                             <div class="card-icon">${icon}</div>
-                            <h3>${title}</h3>
-                            <p>${type} Resource</p>
-                            <a href="${link}" target="_blank" class="btn-text">View Now →</a>
+                            <h3>${cleanTitle}</h3>
+                            <p>${file.name.endsWith('.mp4') ? 'Video' : 'Document'}</p>
+                            <a href="${file.download_url}" target="_blank" class="btn-text">Download / View →</a>
                         `;
                         grid.appendChild(card);
                     }
                 });
-            } catch (e) {
-                console.error("Sheet not connected yet.");
+
+                if (grid.innerHTML === '') {
+                    grid.innerHTML = '<p>No resources found. Upload a .pdf or .mp4 to see it here!</p>';
+                }
+            } catch (error) {
+                grid.innerHTML = '<p>Connection error. Refresh the page.</p>';
             }
         }
-        loadResources();
+        loadFiles();
     </script>
 </body>
 </html>
