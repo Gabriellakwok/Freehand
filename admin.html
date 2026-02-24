@@ -6,26 +6,32 @@
     <title>Freehand | Admin</title>
     <style>
         body { font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #f0f2f5; }
-        .card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); text-align: center; width: 400px; }
-        input { width: 100%; padding: 15px; margin-bottom: 15px; border: 2px solid #eee; border-radius: 12px; }
+        .card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); text-align: center; width: 420px; }
+        input { width: 100%; padding: 15px; margin-bottom: 15px; border: 2px solid #eee; border-radius: 12px; font-size: 1rem; }
         button { background: #00b894; color: white; border: none; padding: 15px; border-radius: 12px; width: 100%; cursor: pointer; font-weight: bold; }
         #content { display: none; }
-        .btn { display: block; margin: 10px 0; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold; color: white; background: #6c5ce7; }
+        .btn { display: block; margin: 15px 0; padding: 20px; border-radius: 15px; text-decoration: none; font-weight: bold; color: white; background: #6c5ce7; }
+        .tip { background: #fff9e6; padding: 15px; border-radius: 10px; font-size: 0.85rem; text-align: left; border: 1px solid #ffe58f; margin-top: 20px; }
     </style>
 </head>
 <body>
     <div id="login" class="card">
-        <h2>Freehand Admin</h2>
-        <input type="password" id="pw" placeholder="Password">
+        <h2>Freehand Dashboard</h2>
+        <input type="password" id="pw" placeholder="Enter Password">
         <button onclick="check()">Login</button>
     </div>
+
     <div id="content" class="card">
-        <h1>Dashboard</h1>
-        <a href="https://github.com/Gabriellakwok/institution-2/upload/main" target="_blank" class="btn">📤 Upload New Files</a>
-        <a href="https://github.com/Gabriellakwok/institution-2/edit/main/index.html" target="_blank" class="btn" style="background:#2d3436;">📝 Change Names/Categories</a>
-        <hr>
-        <a href="index.html" style="color: #bbb; text-decoration: none;">← Back Home</a>
+        <h1>Welcome Back</h1>
+        <a href="https://github.com/Gabriellakwok/institution-2/upload/main" target="_blank" class="btn">📤 Upload New File (JPG/PDF/MP4)</a>
+        <div class="tip">
+            <strong>Naming Rule:</strong> Use a dash to choose a category.<br>
+            <em>Example:</em> <code>AI-Basics.jpg</code> or <code>Python-Lesson.pdf</code>
+        </div>
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+        <a href="index.html" style="color: #bbb; text-decoration: none;">← Back to Home</a>
     </div>
+
     <script>
         function check() {
             if(document.getElementById('pw').value === 'mushroom') {
