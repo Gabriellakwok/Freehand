@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freehand | Skills for the Real World</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.2">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -21,15 +21,14 @@
     <header class="hero">
         <div class="hero-content">
             <h1>Skills for the actual world.</h1>
-            <p>Resources by Gabriella & Priscilla. Updated automatically.</p>
-            <a href="#resources" class="btn-main">View Library</a>
+            <p>Resources by Gabriella & Priscilla. Organized by category.</p>
+            <a href="#resources" class="btn-main">Explore Library</a>
         </div>
     </header>
 
     <section id="resources" class="container">
-        <h2 class="section-title">Resource Library</h2>
-        <div id="file-list" class="grid">
-            <p>Scanning for new files...</p>
+        <div id="category-wrapper">
+            <p>Scanning for categories and files...</p>
         </div>
     </section>
 
@@ -58,41 +57,53 @@
         async function loadFiles() {
             const username = "Gabriellakwok";
             const repo = "institution-2";
-            const grid = document.getElementById('file-list');
+            const wrapper = document.getElementById('category-wrapper');
             
             try {
-                // This fetches your files directly from GitHub's brain
                 const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/`);
                 const files = await response.json();
-                grid.innerHTML = ''; 
+                wrapper.innerHTML = ''; 
+
+                const categories = {};
 
                 files.forEach(file => {
-                    // It ONLY shows your uploads, ignoring the code files
                     const isResource = file.name.endsWith('.pdf') || file.name.endsWith('.zip') || file.name.endsWith('.mp4');
                     
                     if (isResource) {
-                        const card = document.createElement('div');
-                        card.className = 'card';
-                        const icon = file.name.endsWith('.mp4') ? '🎬' : '📄';
+                        // Logic: Name file "Category_Title.pdf" (e.g. AI_Basics.pdf)
+                        let [cat, ...titleParts] = file.name.split('_');
+                        let title = titleParts.join(' ').split('.')[0] || cat.split('.')[0];
                         
-                        // It turns the filename (like My_Video.mp4) into a clean Title (My Video)
-                        const cleanTitle = file.name.split('.')[0].replace(/_/g, ' ').replace(/-/g, ' ');
+                        if (!titleParts.length) { cat = "General"; title = file.name.split('.')[0]; }
 
-                        card.innerHTML = `
-                            <div class="card-icon">${icon}</div>
-                            <h3>${cleanTitle}</h3>
-                            <p>${file.name.endsWith('.mp4') ? 'Video' : 'Document'}</p>
-                            <a href="${file.download_url}" target="_blank" class="btn-text">Download / View →</a>
-                        `;
-                        grid.appendChild(card);
+                        if (!categories[cat]) categories[cat] = [];
+                        categories[cat].push({ title, url: file.download_url, type: file.name.endsWith('.mp4') ? 'Video' : 'Doc' });
                     }
                 });
 
-                if (grid.innerHTML === '') {
-                    grid.innerHTML = '<p>No resources found. Upload a .pdf or .mp4 to see it here!</p>';
+                for (const [catName, fileArray] of Object.entries(categories)) {
+                    const section = document.createElement('div');
+                    section.className = 'category-section';
+                    section.innerHTML = `
+                        <h2 class="category-title">${catName}</h2>
+                        <div class="grid"></div>
+                    `;
+                    const grid = section.querySelector('.grid');
+                    
+                    fileArray.forEach(f => {
+                        const card = document.createElement('div');
+                        card.className = 'card';
+                        card.innerHTML = `
+                            <div class="card-icon">${f.type === 'Video' ? '🎬' : '📄'}</div>
+                            <h3>${f.title}</h3>
+                            <a href="${f.url}" target="_blank" class="btn-text">View ${f.type} →</a>
+                        `;
+                        grid.appendChild(card);
+                    });
+                    wrapper.appendChild(section);
                 }
             } catch (error) {
-                grid.innerHTML = '<p>Connection error. Refresh the page.</p>';
+                wrapper.innerHTML = '<p>Error loading resources. Try a Hard Refresh.</p>';
             }
         }
         loadFiles();
