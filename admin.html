@@ -5,30 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freehand | Admin</title>
     <style>
-        body { font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #f0f2f5; }
-        .card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); text-align: center; width: 400px; }
-        input { width: 100%; padding: 15px; margin: 20px 0; border: 2px solid #eee; border-radius: 12px; text-align: center; }
+        body { font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #f4f7f6; }
+        .card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; width: 400px; }
+        input { width: 100%; padding: 15px; margin: 20px 0; border: 2px solid #eee; border-radius: 15px; text-align: center; }
         button { background: #00b894; color: white; border: none; padding: 15px; border-radius: 12px; width: 100%; font-weight: bold; cursor: pointer; }
         #content { display: none; }
-        .btn { display: block; margin: 10px 0; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold; color: white; }
-        .blue { background: #4285F4; }
-        .purple { background: #6c5ce7; }
+        .upload-btn { display: block; margin: 20px 0; padding: 25px; background: #6c5ce7; color: white; text-decoration: none; border-radius: 15px; font-weight: bold; font-size: 1.2rem; }
     </style>
 </head>
 <body>
     <div id="login" class="card">
         <h2>Freehand Admin</h2>
-        <input type="password" id="pw" placeholder="Password">
+        <input type="password" id="pw" placeholder="Password" autofocus>
         <button onclick="check()">Login</button>
     </div>
 
     <div id="content" class="card">
         <h1>Dashboard</h1>
-        <p>To change titles or add videos:</p>
-        <a href="YOUR_GOOGLE_SHEET_EDIT_LINK" target="_blank" class="btn blue">📝 Change Titles & Links</a>
-        <a href="https://github.com/Gabriellakwok/institution-2/upload/main" target="_blank" class="btn purple">📤 Upload New Files</a>
-        <hr>
-        <a href="index.html" style="color: #ccc; text-decoration: none;">Back Home</a>
+        <p>Step 1: Click the button below.<br>Step 2: Drag in your file.<br>Step 3: Click 'Commit'.</p>
+        <a href="https://github.com/Gabriellakwok/institution-2/upload/main" target="_blank" class="upload-btn">📤 UPLOAD FILE NOW</a>
+        <p style="font-size: 0.8rem; color: #999;">The website will update itself in 1 minute.</p>
+        <hr style="border:0; border-top:1px solid #eee; margin: 20px 0;">
+        <a href="index.html" style="color: #bbb; text-decoration: none;">← Back to Website</a>
     </div>
 
     <script>
@@ -36,7 +34,7 @@
             if(document.getElementById('pw').value === 'mushroom') {
                 document.getElementById('login').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
-            } else { alert("Wrong!"); }
+            } else { alert("Wrong Password"); }
         }
     </script>
 </body>
