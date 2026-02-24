@@ -1,32 +1,27 @@
 * { box-sizing: border-box; transition: 0.3s; }
-body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.6; }
+body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: #fff; }
 
-nav { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; height: 80px; background: white; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #eee; }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; height: 80px; background: #fff; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #eee; }
 .brand-name { font-size: 1.6rem; font-weight: 800; }
-
 nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
 nav a { text-decoration: none; color: #333; font-weight: 600; }
 
 .btn-donate { background: #ff7675; color: white !important; padding: 10px 20px; border-radius: 12px; }
-.btn-donate:hover { background: #ff5e57; transform: scale(1.05); }
 
-.hero { height: 80vh; background: #1a1a1a; color: white; display: flex; align-items: center; justify-content: center; text-align: center; }
+.hero { height: 70vh; background: #1a1a1a; color: white; display: flex; align-items: center; justify-content: center; text-align: center; }
 .hero h1 { font-size: 4rem; margin: 0; }
-.hero p { font-size: 1.4rem; opacity: 0.8; margin: 20px 0 40px; }
 
-.container { padding: 80px 5%; max-width: 1200px; margin: auto; text-align: center; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
+.container { padding: 60px 5%; max-width: 1200px; margin: auto; }
+.category-section { margin-bottom: 60px; text-align: left; }
+.category-title { font-size: 2rem; border-left: 5px solid #00b894; padding-left: 15px; margin-bottom: 30px; }
 
-.card { padding: 40px; background: white; border-radius: 24px; border: 1px solid #eee; text-align: left; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.card { padding: 30px; background: #fdfdfd; border-radius: 20px; border: 1px solid #eee; }
 .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-.card-icon { font-size: 2.5rem; margin-bottom: 15px; }
+.card-icon { font-size: 2rem; margin-bottom: 10px; }
 
 .btn-main { background: #00b894; color: white; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 800; }
 .btn-text { color: #00b894; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 15px; }
 
-.bg-light { background: #f9f9f9; padding: 100px 0; }
-.roles-grid { display: flex; gap: 30px; margin-top: 40px; }
-.role-box { flex: 1; padding: 30px; background: white; border-radius: 20px; border: 1px solid #eee; text-align: left; }
-
-footer { padding: 60px; background: #111; color: white; text-align: center; }
-.admin-link { color: #444; text-decoration: none; display: block; margin-top: 30px; font-size: 0.8rem; }
+footer { padding: 40px; background: #111; color: white; text-align: center; }
+.admin-link { color: #444; text-decoration: none; display: block; margin-top: 20px; }
